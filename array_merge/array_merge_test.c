@@ -23,6 +23,7 @@ void test_empty_list(void) {
 
   result = array_merge(0, sizes,  a);
   assert_true(arrays_match(1, result, expected));
+  free(result);
 }
 
 void test_singleton_list(void) {
@@ -35,6 +36,7 @@ void test_singleton_list(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(2, result, expected));
+  free(result);
 }
 
 void test_one_longer_list(void) {
@@ -47,6 +49,7 @@ void test_one_longer_list(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(8, result, expected));
+  free(result);
 }
 
 void test_multiple_copies_of_longer_list(void) {
@@ -59,6 +62,7 @@ void test_multiple_copies_of_longer_list(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(8, result, expected));
+  free(result);
 }
 
 void test_multiple_copies_of_longer_list_different_orders(void) {
@@ -73,6 +77,7 @@ void test_multiple_copies_of_longer_list_different_orders(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(8, result, expected));
+  free(result);
 }
 
 void test_different_sizes(void) {
@@ -93,6 +98,12 @@ void test_different_sizes(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(11, result, expected));
+  free(result);
+
+  for(i=num_arrays-1; i>-1; --i){
+    free(a[i]);
+  }
+  free(a);
 }
 
 void test_different_sizes_reversed(void) {
@@ -113,6 +124,12 @@ void test_different_sizes_reversed(void) {
 
   result = array_merge(num_arrays, sizes, a);
   assert_true(arrays_match(11, result, expected));
+  free(result);
+
+  for(i=num_arrays-1; i>-1; --i){
+    free(a[i]);
+  }
+  free(a);
 }
 
 int main(int argc, char* argv[]) {

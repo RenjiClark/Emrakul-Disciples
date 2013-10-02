@@ -1,0 +1,1 @@
+gcc -Wall -g -o array_merge_test array_merge.c array_merge_test.c ../mergesort/mergesort.h ../mergesort/mergesort.c ../lib/libcmockery_la-cmockery.o 

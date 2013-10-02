@@ -1,3 +1,9 @@
+Remove this line and use this file to document what you changed to fix
+the memory leaks in palindrome. What did you change, and why did you
+have to change it? (The "why" here will be at least as important as
+the "what".)
+
+
 Inside palindrome.c str_reverse() callocs some memory. This is never freed, so inside palindrome() we freed the memory used after the variable was done being relevant with this line:
 free(rev);
 
